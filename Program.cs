@@ -137,14 +137,38 @@
             }
 
         }
-         
+        else if (subChoice == "3")
         {
-            double result = value * 1.60934;
-            Console.WriteLine($"{value} miles = {result:F2} km");
+            double ghs = ReadNumber("Enter amount in GHS: ");
+            double rate = ReadNumber("enter exchange rate (GHS per 1 USD): ");
+
+            if (rate !=0)
+            {
+                double usd = ghs / rate;
+                Console.WriteLine($"{ghs} GHS = {usd:F2} USD");
+            }
+
+            else
+            {
+                Console.WriteLine("Rate cannot be zero.");
+            }
         }
         else
         {
-            Console.WriteLine("Invalid direction.");
+            Console.WriteLine("Invalid conversion choice.");
+        }
+         
+    }
+    private static double ReadNumber(string prompt)
+    {
+        double value;
+        while(true)
+        {
+            Console.Write(prompt);
+            if(double.TryParse(Console.ReadLine(), out value))
+            return value;
+
+            Console.WriteLine(" invalid input. Please enter a valid number.");
         }
     }
    
