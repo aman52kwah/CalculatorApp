@@ -51,12 +51,12 @@
                             result = num1 * num2;
                             Console.WriteLine($"The result of multiplication is {result}");
                         }
-                        else if (choice == " 4")
+                        else if (choice == "4")
                         {
-                            if(num2!= 0)
+                            if(num2 != 0)
                             {
-                                result = num1 / num2;
-                                Console.WriteLine($"The result of divison is {result}");
+                                double results = num1 / num2;
+                                Console.WriteLine($"The result of divison is {results}");
                             }
                             else
                             {

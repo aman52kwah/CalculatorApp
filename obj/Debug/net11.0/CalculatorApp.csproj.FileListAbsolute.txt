@@ -14,3 +14,4 @@
 /Users/mike/Desktop/CalculatorApp/obj/Debug/net11.0/CalculatorApp.genruntimeconfig.cache
 /Users/mike/Desktop/CalculatorApp/obj/Debug/net11.0/ref/CalculatorApp.dll
 /Users/mike/Desktop/CalculatorApp/obj/Debug/net11.0/Calculat.C0507999.Up2Date
+/Users/mike/Desktop/CalculatorApp/obj/Debug/net11.0/CalculatorApp.sourcelink.json
