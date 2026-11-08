@@ -71,6 +71,7 @@
                     break;
                     default:
                     Console.WriteLine("Invalid choice. Please select a valid operation (1-6).");
+                    break;
             }
 
             Console.WriteLine();
