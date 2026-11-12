@@ -27,6 +27,3 @@
   </ItemGroup>
 </Project>
 
-<ItemGroup>
-  <Compile Remove="CalculatorApp.Tests\**\*.cs" />
-</ItemGroup>
