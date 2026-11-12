@@ -7,10 +7,10 @@ public static class UnitConvertor
     public static double MilesToKilometers(double miles) => 
     miles * KilometersPerMile;
 
-    public static double CeliusToFahrenheit(double celsius) =>
+    public static double CelsuisToFahrenheit(double celsius) =>
     celsius * 9.0 / 5.0 + 32.0;
 
-    public static double FahrenheitToCelsius(double fahrenheit) =>
+    public static double FahrenheitToCelsuis(double fahrenheit) =>
     (fahrenheit - 32.0) * 5.0 /9.0;
 
     public static decimal GhsToUsd(decimal ghs, decimal rateGhsPerUsd)
