@@ -1,22 +1,52 @@
 # CalculatorApp
 
-A .NET console calculator that also includes a unit converter. It handles basic arithmetic and unit conversions with input validation so wrong input won't crash the program.
+A .NET console calculator that also includes a unit converter. It handles basic arithmetic and unit conversions with input validation so wrong input won't crash the app.
+
+## Project Structure
+
+```
+CalculatorApp/
+├── Program.cs              # Main entry point with flat menu
+├── Calculator.cs           # Basic arithmetic operations
+├── UnitConverter.cs        # Unit conversion operations
+├── CalculatorApp.csproj    # Main project file (.NET 11 console app)
+├── CalculatorApp.Tests/    # xUnit test project
+│   ├── CalculatorApp.Tests.csproj
+│   ├── CalculatorTests.cs
+│   └── UnitConverterTests.cs
+├── README.md               # This file
+├── .gitignore              # Standard .NET gitignore
+├── bin/                    # Build output (generated, ignored)
+└── obj/                    # Intermediate build files (generated, ignored)
+```
 
 ## Features
 
-**Calculator**
+### Calculator
+
 1. Addition
 2. Subtraction
 3. Multiplication
 4. Division (guards against division by zero)
 
-**Unit Conversion**
-1. Kilometres <-> Miles
-2. Celsius <-> Fahrenheit
-3. GHS -> USD (you supply the exchange rate)
+### Unit Conversion (flat menu — no nested sub-menus)
 
-**Safety**
-- Every numeric input uses `double.TryParse`, so letters or empty input will not crash the app — the program asks again instead.
+5. Kilometres to Miles (uses `1.609344` km per mile)
+6. Miles to Kilometres
+7. Celsius to Fahrenheit
+8. Fahrenheit to Celsius
+9. GHS to USD (uses `decimal` for money; exchange rate must be greater than zero)
+
+### Exit
+
+10. Exit
+
+### Safety
+
+- Every numeric input uses `double.TryParse` (or `decimal.TryParse` for money), so letters or empty input will not crash the app — the program asks again instead.
+- If the input stream ends (stdin closed), the program exits gracefully instead of looping forever.
+- Division by zero is caught and reported.
+- Exchange rates of zero or negative values are rejected for GHS to USD.
 
 ## Prerequisites
 
@@ -46,9 +76,18 @@ dotnet publish -c Release -o ./publish
 ./publish/CalculatorApp
 ```
 
+## How to Run Tests
+
+The project includes an xUnit test project under `CalculatorApp.Tests/`. To run all tests:
+
+```bash
+cd CalculatorApp.Tests
+dotnet test
+```
+
 ## How to Use
 
-When the program starts, you will see a menu:
+When the program starts, you will see a flat menu:
 
 ```
 ========== Hello, welcome to the calculator program ! ===========
@@ -57,10 +96,14 @@ Please select an operation from the following options
 2. Subtraction
 3. Multiplication
 4. Division
-5. Unit Conversion
-6. Exit
+5. Kilometres to Miles
+6. Miles to Kilometres
+7. Celsius to Fahrenheit
+8. Fahrenheit to Celsius
+9. GHS to USD
+10. Exit
 ======================================================================
-Enter your choice (1-6): 
+Enter your choice (1-10): 
 ```
 
 ### Basic Calculations (options 1–4)
@@ -69,7 +112,7 @@ Pick an option, then enter two numbers when prompted. The result is displayed im
 
 Example:
 ```
-Enter your choice (1-6): 1
+Enter your choice (1-10): 1
 Enter the first number: 10
 Enter the second number: 5
 The result of addition is 15
@@ -77,42 +120,40 @@ The result of addition is 15
 
 Division by zero is caught:
 ```
-Enter your choice (1-6): 4
+Enter your choice (1-10): 4
 Enter the first number: 10
 Enter the second number: 0
 Error: Division by zero is not allowed.
 ```
 
-### Unit Conversion (option 5)
+### Unit Conversion (options 5–9)
 
-Pick option 5, then choose a conversion type:
+Pick an option, then enter the value when prompted.
 
-```
---- Unit Conversion ---
-1. Kilometres to Miles
-2. Celsius <-> Fahrenheit
-3. GHS -> USD
-Choose a conversion (1-3): 
-```
-
-**Kilometres <-> Miles**
-- Choose direction (1 = km to miles, 2 = miles to km)
+**Kilometres <-> Miles** (options 5 and 6)
 - Enter the value
 - Result shows both units
 
-**Celsius <-> Fahrenheit**
-- Choose direction (1 = °C to °F, 2 = °F to °C)
+**Celsius <-> Fahrenheit** (options 7 and 8)
 - Enter the value
 - Result shows both units
 
-**GHS -> USD**
+**GHS -> USD** (option 9)
 - Enter amount in GHS
-- Enter the exchange rate (GHS per 1 USD)
+- Enter the exchange rate (GHS per 1 USD). Must be greater than zero.
 - Result shows the USD equivalent
 
-### Exit (option 6)
+Example:
+```
+Enter your choice (1-10): 9
+Enter amount in GHS: 600
+Enter exchange rate (GHS per 1 USD): 15
+600 GHS = 40.00 USD
+```
 
-Choosing 6 closes the program.
+### Exit (option 10)
+
+Choosing 10 closes the program.
 
 ## Example Session
 
@@ -124,33 +165,29 @@ Please select an operation from the following options
 2. Subtraction
 3. Multiplication
 4. Division
-5. Unit Conversion
-6. Exit
+5. Kilometres to Miles
+6. Miles to Kilometres
+7. Celsius to Fahrenheit
+8. Fahrenheit to Celsius
+9. GHS to USD
+10. Exit
 ======================================================================
-Enter your choice (1-6): 5
+Enter your choice (1-10): 1
+Enter the first number: 10
+Enter the second number: 5
+The result of addition is 15
 
---- Unit Conversion ---
-1. Kilometres to Miles
-2. Celsius <-> Fahrenheit
-3. GHS -> USD
-Choose a conversion (1-3): 3
+Enter your choice (1-10): 9
 Enter amount in GHS: 600
-enter exchange rate (GHS per 1 USD): 15
+Enter exchange rate (GHS per 1 USD): 15
 600 GHS = 40.00 USD
-```
 
-## File Structure
-
-```
-CalculatorApp/
-├── Program.cs        # Main source code
-├── CalculatorApp.csproj # Project file (.NET 11 console app)
-├── README.md         # This file
-├── bin/              # Build output (generated)
-└── obj/              # Intermediate build files (generated)
+Enter your choice (1-10): 10
+Goodbye!
 ```
 
 ## Notes
 
-- The program loops until you select **6. Exit**, so you can perform multiple operations without restarting.
+- The program loops until you select **10. Exit**, so you can perform multiple operations without restarting.
 - If you enter non-numeric text where a number is expected, the program prints "Invalid input. Please enter a valid number." and prompts again instead of crashing.
+- Build output (`bin/`, `obj/`, `publish/`) and macOS `.DS_Store` files are ignored by `.gitignore` and not tracked in Git.
