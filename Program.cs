@@ -77,7 +77,7 @@
                             isRunning = false;
                             break;
                         }
-                        double miles = UnitConvertor.KilometersToMiles(km);
+                        double miles = UnitConverter.KilometersToMiles(km);
                         Console.WriteLine($"{km} km = {miles:F2} miles");
                         break;
                     }
@@ -89,7 +89,7 @@
                             break;
                             
                         }
-                        double kilometers = UnitConvertor.MilesToKilometers(miles);
+                        double kilometers = UnitConverter.MilesToKilometers(miles);
                         Console.WriteLine($"{miles} miles = {kilometers:F2} Kilometers");
                         break;
                     }
@@ -100,7 +100,7 @@
                              isRunning = false;
                             break;
                         }
-                        double fahrenheit = UnitConvertor.CelsuisToFahrenheit(celsuis);
+                        double fahrenheit = UnitConverter.CelsiusToFahrenheit(celsuis);
                         Console.WriteLine($"{celsuis} celsuis = {fahrenheit:F2} fahrenheit");
                         break;
                     }
@@ -111,7 +111,7 @@
                             isRunning = false;
                             break;
                         }
-                        double celsuis = UnitConvertor.FahrenheitToCelsuis(fahrenheit);
+                        double celsuis = UnitConverter.FahrenheitToCelsius(fahrenheit);
                         Console.WriteLine($"{fahrenheit} fahrenheit = {celsuis:F2} fahrenheit");
                         break;
                     }
@@ -129,7 +129,7 @@
                         }
                         try
                         {
-                            decimal usd = UnitConvertor.GhsToUsd(ghs, rate);
+                            decimal usd = UnitConverter.GhsToUsd(ghs, rate);
                             Console.WriteLine($"{ghs} GHS = {usd:F2} USD");
                         }
                         catch (ArgumentOutOfRangeException ex)

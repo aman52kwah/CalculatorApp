@@ -1,5 +1,0 @@
-/Users/mike/Desktop/CalculatorApp/publish/CalculatorApp
-/Users/mike/Desktop/CalculatorApp/publish/CalculatorApp.dll
-/Users/mike/Desktop/CalculatorApp/publish/CalculatorApp.deps.json
-/Users/mike/Desktop/CalculatorApp/publish/CalculatorApp.runtimeconfig.json
-/Users/mike/Desktop/CalculatorApp/publish/CalculatorApp.pdb

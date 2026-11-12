@@ -1,4 +1,4 @@
-public static class UnitConvertor
+public static class UnitConverter
 {
     public const double KilometersPerMile = 1.609344;
 
@@ -7,11 +7,11 @@ public static class UnitConvertor
     public static double MilesToKilometers(double miles) => 
     miles * KilometersPerMile;
 
-    public static double CelsuisToFahrenheit(double celsius) =>
+    public static double CelsiusToFahrenheit(double celsius) =>
     celsius * 9.0 / 5.0 + 32.0;
 
-    public static double FahrenheitToCelsuis(double fahrenheit) =>
-    (fahrenheit - 32.0) * 5.0 /9.0;
+    public static double FahrenheitToCelsius(double fahrenheit) =>
+    (fahrenheit - 32.0) * 5.0 / 9.0;
 
     public static decimal GhsToUsd(decimal ghs, decimal rateGhsPerUsd)
     {
