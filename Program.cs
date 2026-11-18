@@ -139,8 +139,11 @@
                         }
                         break;
                     }
-                    // default:
-                    // "Invalid choice";
+                    default:
+                    {
+                        Console.WriteLine("Invalid choice. Please select a valid operation (1-10).");
+                        break;
+                    }
                    
             }
 
