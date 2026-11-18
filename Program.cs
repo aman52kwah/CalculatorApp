@@ -57,14 +57,15 @@
                         }
                         else if (choice == "4")
                         {
-                            if(num2 != 0)
+                            try
                             {
                                 double results = Calculator.Divide(num1, num2);
                                 Console.WriteLine($"The result of division is {results}");
                             }
-                            else
+                            catch(DivideByZeroException ex)
+                            
                             {
-                                Console.WriteLine("Error: Division by zero is not allowed.");
+                                Console.WriteLine($"Error: {ex.Message}");
                             }
                         }
                         break;
