@@ -9,7 +9,7 @@
             Console.WriteLine("========== Hello, welcome to the calculator program ! ===========");
             Console.WriteLine("Please select an operation from the following options");
             Console.WriteLine("1. Addition");
-            Console.WriteLine("2. Substraction");
+            Console.WriteLine("2. Subtraction");
             Console.WriteLine("3. Multiplication");
             Console.WriteLine("4. Division");
             Console.WriteLine("5. Kilometres to Miles");
@@ -60,7 +60,7 @@
                             if(num2 != 0)
                             {
                                 double results = Calculator.Divide(num1, num2);
-                                Console.WriteLine($"The result of divison is {results}");
+                                Console.WriteLine($"The result of division is {results}");
                             }
                             else
                             {
@@ -74,7 +74,7 @@
                     {
                         if(!ReadNumber("Enter value in kilometers: ", out double km))
                         {
-                            isRunning = false;
+                           
                             break;
                         }
                         double miles = UnitConverter.KilometersToMiles(km);
@@ -95,13 +95,13 @@
                     }
                     case "7":
                     {
-                        if (!ReadNumber("Enter a value in Celsuis: ", out double celsuis))
+                        if (!ReadNumber("Enter a value in Celsius: ", out double celsius))
                         {
                              isRunning = false;
                             break;
                         }
-                        double fahrenheit = UnitConverter.CelsiusToFahrenheit(celsuis);
-                        Console.WriteLine($"{celsuis} celsuis = {fahrenheit:F2} fahrenheit");
+                        double fahrenheit = UnitConverter.CelsiusToFahrenheit(celsius);
+                        Console.WriteLine($"{celsius} celsius = {fahrenheit:F2} fahrenheit");
                         break;
                     }
                     case "8":
@@ -111,8 +111,8 @@
                             isRunning = false;
                             break;
                         }
-                        double celsuis = UnitConverter.FahrenheitToCelsius(fahrenheit);
-                        Console.WriteLine($"{fahrenheit} fahrenheit = {celsuis:F2} fahrenheit");
+                        double celsius = UnitConverter.FahrenheitToCelsius(fahrenheit);
+                        Console.WriteLine($"{fahrenheit} fahrenheit = {celsius:F2} fahrenheit");
                         break;
                     }
                     case "9":
@@ -122,7 +122,7 @@
                             isRunning =  false;
                             break;
                         }
-                        if (!ReadDecimal("Enter exhange rate (GHS per 1 USD): ", out decimal rate))
+                        if (!ReadDecimal("Enter exchange rate (GHS per 1 USD): ", out decimal rate))
                         {
                             isRunning = false;
                             break;

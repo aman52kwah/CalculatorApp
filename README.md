@@ -56,7 +56,7 @@ CalculatorApp/
 
 ### Option 1: Run directly from source
 
-Open a terminal in the project folder (`/Users/mike/Desktop/CalculatorApp`) and run:
+Open a terminal in the project folder  and run:
 
 ```bash
 dotnet run

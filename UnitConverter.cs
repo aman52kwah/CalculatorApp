@@ -19,7 +19,7 @@ public static class UnitConverter
         {
             throw new ArgumentOutOfRangeException(
                 nameof(rateGhsPerUsd),
-                "Exhange rate must be greater than zero."
+                "Exchange rate must be greater than zero."
             );
         }
 
