@@ -27,7 +27,7 @@ CalculatorApp/
 1. Addition
 2. Subtraction
 3. Multiplication
-4. Division (guards against division by zero)
+4. Division (throws `DivideByZeroException` on zero divisor)
 
 ### Unit Conversion (flat menu — no nested sub-menus)
 
@@ -45,8 +45,9 @@ CalculatorApp/
 
 - Every numeric input uses `double.TryParse` (or `decimal.TryParse` for money), so letters or empty input will not crash the app — the program asks again instead.
 - If the input stream ends (stdin closed), the program exits gracefully instead of looping forever.
-- Division by zero is caught and reported.
+- Division by zero is caught and reported via `DivideByZeroException`.
 - Exchange rates of zero or negative values are rejected for GHS to USD.
+- Typing an invalid menu choice (anything other than 1–10) prints "Invalid choice" and redisplays the menu.
 
 ## Prerequisites
 
