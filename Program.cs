@@ -36,8 +36,17 @@
                 case "3":
                 case "4":
                     {
-                         ReadNumber("Enter the first number: ", out double num1);
-                         ReadNumber("Enter the second number: ", out double num2);
+                         if (!ReadNumber("Enter the first number: " ,out double num1))
+                        {
+                            isRunning = false;
+                            break;
+                        }
+                        if (!ReadNumber("Enter the first number: ", out double num2))
+                        {
+                            isRunning = false;
+                            break;
+                        }
+                        
                         double result = 0;
 
                         if(choice == "1")
