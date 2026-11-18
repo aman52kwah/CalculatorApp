@@ -85,7 +85,7 @@
                     {
                         if (!ReadNumber("Enter value in miles: ", out double miles))
                         {
-                            isRunning = false;
+                            //isRunning = false;
                             break;
                             
                         }
@@ -97,7 +97,7 @@
                     {
                         if (!ReadNumber("Enter a value in Celsius: ", out double celsius))
                         {
-                             isRunning = false;
+                             
                             break;
                         }
                         double fahrenheit = UnitConverter.CelsiusToFahrenheit(celsius);
@@ -108,23 +108,23 @@
                     {
                         if(!ReadNumber("Enter a value in Fahrenheit: ", out double fahrenheit))
                         {
-                            isRunning = false;
+                            
                             break;
                         }
                         double celsius = UnitConverter.FahrenheitToCelsius(fahrenheit);
-                        Console.WriteLine($"{fahrenheit} fahrenheit = {celsius:F2} fahrenheit");
+                        Console.WriteLine($"{fahrenheit} fahrenheit = {celsius:F2} celsius");
                         break;
                     }
                     case "9":
                     {
                         if (!ReadDecimal("Enter Amount in GHS: " , out decimal ghs))
                         {
-                            isRunning =  false;
+                           
                             break;
                         }
                         if (!ReadDecimal("Enter exchange rate (GHS per 1 USD): ", out decimal rate))
                         {
-                            isRunning = false;
+                            
                             break;
                         }
                         try
@@ -139,6 +139,8 @@
                         }
                         break;
                     }
+                    // default:
+                    // "Invalid choice";
                    
             }
 
